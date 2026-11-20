@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="t">
+  <title id="t">An open notebook page with one paragraph marked as changed by Claude, beside a line of commits</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCD6FA"/><stop offset="1" stop-color="#F3F1FA"/></linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#17142A" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="500" cy="96" r="150" fill="#6A47EE" opacity=".08"/>
+  <g transform="rotate(6 270 320)" filter="url(#sh)">
+    <rect x="120" y="120" width="300" height="390" rx="20" fill="#FFFFFF" opacity=".7"/>
+  </g>
+  <g transform="rotate(-3 270 320)" filter="url(#sh)">
+    <rect x="96" y="104" width="320" height="410" rx="22" fill="#FFFFFF"/>
+    <path d="M140 150c7 8.5 11.5 15 11.5 20.5a11.5 11.5 0 0 1-23 0c0-5.5 4.5-12 11.5-20.5Z" fill="#6A47EE"/>
+    <rect x="170" y="156" width="120" height="14" rx="7" fill="#17142A"/>
+    <rect x="130" y="206" width="250" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="130" y="226" width="226" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="130" y="246" width="180" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="114" y="282" width="5" height="78" rx="2.5" fill="#D9590F"/>
+    <rect x="128" y="282" width="168" height="12" rx="4" fill="#FBE6EB"/>
+    <rect x="132" y="287" width="160" height="2" fill="#A3354E"/>
+    <rect x="128" y="304" width="252" height="12" rx="4" fill="#FFEBDD"/>
+    <rect x="128" y="324" width="214" height="12" rx="4" fill="#FFEBDD"/>
+    <rect x="130" y="346" width="96" height="7" rx="3.5" fill="#D9590F" opacity=".75"/>
+    <rect x="130" y="390" width="244" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="130" y="410" width="204" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="130" y="430" width="230" height="9" rx="4.5" fill="#D9D7E4"/>
+    <rect x="130" y="450" width="140" height="9" rx="4.5" fill="#D9D7E4"/>
+  </g>
+  <g>
+    <path d="M478 150V470" stroke="#17142A" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+    <circle cx="478" cy="170" r="13" fill="#FFFFFF" stroke="#D9590F" stroke-width="5"/>
+    <circle cx="478" cy="260" r="13" fill="#FFFFFF" stroke="#6A47EE" stroke-width="5"/>
+    <circle cx="478" cy="350" r="13" fill="#FFFFFF" stroke="#6A47EE" stroke-width="5"/>
+    <circle cx="478" cy="440" r="13" fill="#FFFFFF" stroke="#6A47EE" stroke-width="5"/>
+    <rect x="504" y="164" width="54" height="10" rx="5" fill="#D9590F" opacity=".8"/>
+    <rect x="504" y="254" width="40" height="10" rx="5" fill="#17142A" opacity=".55"/>
+    <rect x="504" y="344" width="50" height="10" rx="5" fill="#17142A" opacity=".55"/>
+    <rect x="504" y="434" width="34" height="10" rx="5" fill="#17142A" opacity=".55"/>
+  </g>
+</svg>

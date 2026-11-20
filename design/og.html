@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- The social share image, public/images/og.png (1200x630). To make it again, open this file in
+     a browser at exactly 1200x630 and take a screenshot, or run: python3 design/og.py -->
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;font-weight:100 900;src:url(../public/fonts/inter.woff2) format("woff2")}
+@font-face{font-family:Newsreader;font-weight:200 800;src:url(../public/fonts/newsreader.woff2) format("woff2")}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{background:linear-gradient(135deg,#ECEBF3,#DFD9F8);font-family:Inter,sans-serif;color:#17142A;display:grid;grid-template-columns:1fr 470px;gap:56px;padding:64px 70px;box-sizing:border-box;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;font:500 34px/1 Newsreader,serif}
+.brand svg{width:34px;height:34px}
+h1{font:400 66px/1.03 Newsreader,serif;letter-spacing:-.02em;margin:34px 0 22px}
+p{font-size:24px;line-height:1.45;color:#58546B;margin:0}
+.url{margin-top:34px;font:500 20px/1 Inter;color:#6A47EE}
+.page{background:#fff;border-radius:24px;box-shadow:0 30px 60px -30px rgba(23,20,42,.4);overflow:hidden}
+.top{display:flex;justify-content:space-between;padding:16px 22px;border-bottom:1px solid #D9D7E4;font-size:15px;color:#58546B}
+.top b{color:#17142A;font-weight:500}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#D9590F;margin-right:7px}
+.body{padding:24px 28px 10px 44px}
+h3{font:400 30px/1.2 Newsreader,serif;margin:0 0 14px}
+.para{position:relative;font:400 19px/1.55 Newsreader,serif;color:#2b2740;margin:0 0 14px}
+.ch::before{content:"";position:absolute;left:-24px;top:4px;bottom:4px;width:5px;border-radius:4px;background:#D9590F}
+del{color:#A3354E;background:#FBE6EB;border-radius:3px;padding:0 2px}
+ins{text-decoration:none;background:#FFEBDD;color:#5a2a08;border-radius:3px;padding:0 2px}
+.who{display:block;margin-top:6px;font:500 13.5px/1.3 Inter;color:#B54A0C}
+.foot{display:flex;justify-content:flex-end;gap:10px;padding:14px 22px;border-top:1px solid #D9D7E4;background:#FAFAFD}
+.b{font:500 15px/1 Inter;padding:10px 16px;border-radius:999px;border:1px solid #D9D7E4}
+.go{background:#6A47EE;border-color:#6A47EE;color:#fff}
+</style></head><body>
+<div>
+  <div class="brand"><svg viewBox="0 0 24 24"><path d="M12 2.5c3.8 4.6 6.5 8.4 6.5 11.7A6.5 6.5 0 0 1 5.5 14.2C5.5 10.9 8.2 7.1 12 2.5Z" fill="#6A47EE"/></svg>Quillipi</div>
+  <h1>A notebook you and your AI write together.</h1>
+  <p>Every change is a commit you can see and undo.</p>
+  <div class="url">quillipi.app · free for one person</div>
+</div>
+<div class="page">
+  <div class="top"><span>launch-plan / <b>Pricing</b></span><span><span class="dot"></span>1 change not committed</span></div>
+  <div class="body">
+    <h3>Pricing</h3>
+    <p class="para">Free for one person, forever.</p>
+    <p class="para ch"><del>Teams pay per seat, $15 a person.</del> <ins>Teams pay one flat price, so adding a person never changes the bill.</ins><span class="who">Claude via Claude Code · not committed</span></p>
+  </div>
+  <div class="foot"><span class="b">Undo change</span><span class="b go">Commit</span></div>
+</div>
+</body></html>

@@ -1,0 +1,38 @@
+# Quillipi
+
+> Quillipi is a free, source-available notebook that you and your AI write together. Ask Claude to read it in any chat, with one line, and it knows the whole project; it edits it one paragraph at a time, and every change is a Git commit that says who made it and can be undone. It runs in your own Cloudflare account and keeps its history in a private repository in your own GitHub.
+
+## What it is
+
+- A notebook is a set of pages (sections) for one project: an idea, a company, a codebase, a book, a game, a thesis. Folders keep a big notebook tidy.
+- Every paragraph (block) has a permanent ID. AI agents read and edit through MCP tools that address blocks by ID, so they change exactly the paragraph they mean to, and only after reading it, instead of rewriting the whole page.
+- Every change is a Git commit. A commit made by an AI names the AI that made it. Any commit can be undone while later work stays.
+- If a person and an AI change the same paragraph, the person's version stays.
+- Large deletions by an AI wait for the person to approve them.
+- Each notebook can have instructions for AI agents, which they get before anything else in the notebook and which no AI tool can change.
+- Notebooks are plain Markdown files in Git, so they can be opened with any editor or Git tool.
+
+## Who it is for
+
+Solo founders, developers using Claude Code, writers and world-builders, game designers, students and researchers, and open-source maintainers: anyone who works on something big with an AI over many chats and needs it to remember. Team features (several people, each with their own AI, in one notebook) are planned and not built yet.
+
+## Works with
+
+Claude today: claude.ai, the Claude desktop app, Claude on iPhone and Android, and Claude Code, through MCP. Other AI apps that speak MCP, such as ChatGPT, Cursor and VS Code, are planned and not yet tested.
+
+## Setting it up
+
+Press Deploy to Cloudflare in the README, choose a name and enter your GitHub username. Then open your new Quillipi: it asks for a free GitHub organization for your notebooks, makes Quillipi's GitHub App there in one click, installs it, and you sign in with GitHub and connect Claude. No terminal. Cloudflare's free plan is enough.
+
+## Price
+
+Free for one person, with unlimited notebooks. A paid plan for teams is planned at $29 a month per team, an early price that the first teams keep for life, and is not available yet. Open-source projects that want team features can ask.
+
+## Links
+
+- [Homepage](https://quillipi.app/)
+- [Code and guide (README)](https://github.com/quillipi/quillipi#readme)
+- [What's new (CHANGELOG)](https://github.com/quillipi/quillipi/blob/main/CHANGELOG.md)
+- [Security policy](https://github.com/quillipi/quillipi/blob/main/SECURITY.md)
+- [Report a problem](https://github.com/quillipi/quillipi/issues)
+- Contact: hello@quillipi.app. Security reports: security@quillipi.app

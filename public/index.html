@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quillipi: a notebook you and your AI write together</title>
+<meta name="description" content="Project memory you and Claude share. Claude edits one paragraph at a time, and every change is a Git commit you can see and undo. Free for one person.">
+<link rel="canonical" href="https://quillipi.app/">
+<meta name="theme-color" content="#ECEBF3">
+<meta name="color-scheme" content="light">
+<meta name="author" content="Karan">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quillipi">
+<meta property="og:url" content="https://quillipi.app/">
+<meta property="og:title" content="Quillipi: a notebook you and your AI write together">
+<meta property="og:description" content="Project memory you and your AI share, with every change as a commit you can see and undo.">
+<meta property="og:image" content="https://quillipi.app/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quillipi: a notebook page where Claude's change to one paragraph waits to be committed.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quillipi: a notebook you and your AI write together">
+<meta name="twitter:description" content="Project memory you and your AI share, with every change as a commit you can see and undo.">
+<meta name="twitter:image" content="https://quillipi.app/images/og.png">
+<meta name="twitter:image:alt" content="Quillipi: a notebook page where Claude's change to one paragraph waits to be committed.">
+
+<link rel="icon" href="/images/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/site.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://quillipi.app/#website",
+      "url": "https://quillipi.app/",
+      "name": "Quillipi",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://quillipi.app/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://quillipi.app/#org",
+      "name": "Quillipi",
+      "url": "https://quillipi.app/",
+      "logo": "https://quillipi.app/images/icon-512.png",
+      "email": "hello@quillipi.app",
+      "founder": { "@type": "Person", "name": "Karan" },
+      "sameAs": ["https://github.com/quillipi"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://quillipi.app/#app",
+      "name": "Quillipi",
+      "url": "https://quillipi.app/",
+      "description": "Quillipi is a notebook that you and your AI write together. Every paragraph has a permanent ID, so Claude edits one paragraph at a time instead of rewriting the page, and every change is a Git commit that says who made it and can be undone. It runs in your own Cloudflare account, keeps its history in a private repository in your own GitHub, and connects to Claude through MCP.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Any modern web browser; runs on Cloudflare Workers",
+      "isAccessibleForFree": true,
+      "license": "https://polyformproject.org/licenses/shield/1.0.0",
+      "image": "https://quillipi.app/images/og.png",
+      "author": { "@type": "Person", "name": "Karan" },
+      "publisher": { "@id": "https://quillipi.app/#org" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free for one person" },
+      "featureList": [
+        "A permanent ID for every paragraph, so the AI edits exactly the paragraph it means to",
+        "Every change is a Git commit that names who made it",
+        "Undo any commit while later work stays",
+        "Instructions for each notebook that the AI reads first and cannot change",
+        "Works with Claude on the web, the desktop app, the phone apps and Claude Code",
+        "Runs in your own Cloudflare account, with history in your own GitHub"
+      ],
+      "sameAs": ["https://github.com/quillipi/quillipi"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://quillipi.app/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for one person. Quillipi runs in your own Cloudflare account, and Cloudflare's free plan is enough for it, so there's nothing to pay me or them. The code is public and source-available, under the PolyForm Shield license. Teams will pay once team features exist." } },
+        { "@type": "Question", "name": "Can you read my notebooks?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your copy of Quillipi runs in your Cloudflare account and keeps its history in your GitHub. Nothing passes through me." } },
+        { "@type": "Question", "name": "Do I need to know Cloudflare or GitHub?", "acceptedAnswer": { "@type": "Answer", "text": "You need a free account on each. The setup page walks you through every step and tells you what to press on each page, and you come back to Quillipi by yourself. No terminal." } },
+        { "@type": "Question", "name": "What does Claude actually do with it?", "acceptedAnswer": { "@type": "Answer", "text": "At the start of a chat it reads a short map of the notebook, then only the pages it needs. It edits paragraphs by their IDs, commits its own changes with a message saying what it did, and never commits yours. Big deletions wait for your approval." } },
+        { "@type": "Question", "name": "Which AI apps work with it?", "acceptedAnswer": { "@type": "Answer", "text": "Claude today: claude.ai, the desktop app, the phone apps and Claude Code. Quillipi speaks MCP, the open standard these apps use, so ChatGPT, Cursor and VS Code are next. I'll list them here once I've tried each one." } },
+        { "@type": "Question", "name": "What if I stop using it?", "acceptedAnswer": { "@type": "Answer", "text": "Your notebooks are Markdown files in a Git repo you own. Take them anywhere, open them with anything." } },
+        { "@type": "Question", "name": "Who makes this?", "acceptedAnswer": { "@type": "Answer", "text": "Me, Karan. I'm building it on my own, out in the open. If something breaks or you want something, open an issue on GitHub or email hello@quillipi.app." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+
+<svg width="0" height="0" class="sr" aria-hidden="true" focusable="false">
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5c3.8 4.6 6.5 8.4 6.5 11.7A6.5 6.5 0 0 1 5.5 14.2C5.5 10.9 8.2 7.1 12 2.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.6 4.2 4.2 0 0 0 7 18Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M4 7h3M4 12h3M4 17h3M10 7h10M10 12h10M10 17h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7 4 12l5 5M4 12h10a6 6 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -3)"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M12 3v9M8 6v7M16 6v7M4.5 10.5c0 6 3 9.5 7.5 9.5s7.5-3.5 7.5-9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M6 3.5h9l3.5 3.5v13.5H6z M15 3.5V7h3.5 M9 12h6M9 16h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="9" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 8.2v7.6M18 11.2c0 3-3 3.8-9.8 5.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Quillipi, back to the top"><svg class="drop" aria-hidden="true"><use href="#i-drop"/></svg>Quillipi</a>
+    <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav-links" hidden><svg aria-hidden="true"><use href="#i-menu"/></svg>Menu</button>
+    <nav aria-label="Main">
+      <ul id="nav-links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#who">Who it's for</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="https://github.com/quillipi/quillipi">GitHub</a></li>
+        <li class="only-menu"><a href="#start">Get Quillipi free</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-ink nav-cta" href="#start">Get Quillipi free</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-h">A notebook you and your AI write together.</h1>
+      <p class="lede">Write your project down once. Start any chat with one line and Claude reads it, edits it one paragraph at a time, and every change lands as a commit you can see and undo.</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="#start">Get Quillipi free</a>
+        <a class="btn btn-line" href="#film"><svg aria-hidden="true"><use href="#i-play"/></svg>Watch the 90-second demo</a>
+      </div>
+      <p class="fine">Free for one person, forever. Source-available. Runs in your own Cloudflare account, with its history in your own GitHub.</p>
+    </div>
+
+    <div>
+      <div class="page" id="demo" role="group" aria-label="Try it: a notebook page with a change from Claude">
+        <div class="page-top">
+          <span class="crumb">launch-plan / <b>Pricing</b></span>
+          <span class="state" id="demo-state"><span class="dot"></span>1 change not committed</span>
+        </div>
+        <div class="page-body">
+          <h3>Pricing</h3>
+          <p class="para">Free for one person, forever. Everything you need to run it alone.</p>
+          <p class="para changed" id="demo-para"><del>Teams pay per seat, $15 a person.</del> <ins>Teams pay one flat price, so adding a person never changes the bill.</ins><span class="who">Claude via Claude Code · not committed</span></p>
+          <p class="para">Open-source projects: talk to me first.</p>
+        </div>
+        <div class="page-foot">
+          <span class="msg" id="demo-msg" aria-live="polite">Claude changed one paragraph. Nothing else was touched.</span>
+          <button class="mini" id="demo-undo" type="button">Undo change</button>
+          <button class="mini go" id="demo-commit" type="button">Commit</button>
+          <button class="mini" id="demo-reset" type="button" hidden>Try again</button>
+        </div>
+        <ol class="log" id="demo-log" reversed aria-label="History">
+          <li><span class="n">#41</span><span>Add the open-source line</span><span class="by">You · yesterday</span></li>
+          <li><span class="n">#40</span><span>First draft of pricing</span><span class="by claude">Claude via claude.ai · 2 days ago</span></li>
+        </ol>
+      </div>
+      <p class="demo-note">This page works. Commit the change, or undo it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap stage" data-waits="SHOT-01 SHOT-02" hidden>
+  <div class="browser">
+    <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">quillipi.your-name.workers.dev</span></div>
+    <div class="shot" data-slot="SHOT-01"><div class="ph"><strong>SHOT-01</strong><span>Home of the app: your notebooks as folders, Recently edited, the backup card. Browser at 1440×900.</span></div></div>
+  </div>
+  <div class="phone"><div class="shot" data-slot="SHOT-02"><div class="ph"><strong>SHOT-02</strong><span>The installed app on a phone, Home.</span></div></div></div>
+</div>
+
+<section class="problem" aria-labelledby="problem-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="problem-h">Every new chat starts from zero.</h2>
+      <p class="lede">If you build things with Claude, you know the routine.</p>
+    </div>
+    <div class="lines">
+      <div class="line reveal"><h3>You explain the project again.</h3><p class="muted">What it is, what you decided last week, why you didn't pick the other option. Every chat, from the top.</p></div>
+      <div class="line reveal"><h3>The handoff file goes stale.</h3><p class="muted">So you keep a notes.md and paste it in. Then you forget to update it, and the AI works from last month's plan.</p></div>
+      <div class="line reveal"><h3>You can't see what the AI changed.</h3><p class="muted">Ask it to update the file and it rewrites the whole thing. Somewhere in there a decision quietly disappeared, and you won't notice until it matters.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="pt-m" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="how-h">How it works</h2>
+      <p class="lede">A notebook is a set of pages for one project. You write in it, Claude writes in it, and nothing changes without a record.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="copy">
+          <div class="num" aria-hidden="true">1</div>
+          <h3>Write it down once</h3>
+          <p>Start a notebook in one click, or ask Claude to make one. Put in what matters: the idea, the decisions, the plan, the why behind them. Folders keep a big project tidy.</p>
+          <p class="muted">It's a normal editor. Headings, lists, tables, checklists, images and drawings.</p>
+        </div>
+        <div class="frame"><div class="shot" data-slot="SHOT-06"><div class="ph"><strong>SHOT-06</strong><span>A notebook's overview: folders and sections as rows, the last commit on each, like a repo on GitHub.</span></div></div></div>
+      </li>
+      <li class="step reveal">
+        <div class="copy">
+          <div class="num" aria-hidden="true">2</div>
+          <h3>Claude reads it whenever you ask</h3>
+          <p>Connect Quillipi to Claude once. After that, a new chat needs one line, like "read my launch plan", and Claude knows the whole project. No pasting.</p>
+          <p class="muted">It reads a short map first and then only what it needs, so long notebooks stay cheap to use.</p>
+        </div>
+        <div class="frame"><div class="shot" data-slot="SHOT-04"><div class="ph"><strong>SHOT-04</strong><span>A claude.ai chat: one short message, Claude reads the notebook and answers with full context.</span></div></div></div>
+      </li>
+      <li class="step reveal">
+        <div class="copy">
+          <div class="num" aria-hidden="true">3</div>
+          <h3>You see every change, and keep the ones you want</h3>
+          <p>Claude edits paragraph by paragraph, never the whole page. Its changes show in the margin until they're committed. Every commit says who made it, and any commit can be undone.</p>
+          <p class="muted">If Claude tries to delete something big, it waits for you to approve it.</p>
+        </div>
+        <div class="frame"><div class="shot" data-slot="SHOT-03"><div class="ph"><strong>SHOT-03</strong><span>A section open with an orange margin mark on the paragraph Claude changed, and the History panel on the right.</span></div></div></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="film" id="film" aria-labelledby="film-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="film-h">See it in 90 seconds</h2>
+      <p class="lede">A new chat, one sentence, and Claude knows the whole project. Then a change from Claude that you look over and commit.</p>
+    </div>
+    <div class="screen reveal" data-slot="VID-01"><div class="ph"><strong>VID-01</strong><span>Demo video, 16:9, 60 to 90 seconds, with captions.</span></div></div>
+    <div class="note reveal">
+      <p>I built Quillipi with Quillipi. Every chat that worked on it started with one line, "read Quillipi", and picked up exactly where the last one stopped.</p>
+      <p class="small">That's the whole idea. The project's memory lives in one place that both of us can read and write, and I can see every change Claude makes to it. — Karan, who makes this</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="get-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="get-h">Built so you can trust what's in it</h2>
+    </div>
+    <ul class="facts">
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><h3>Every paragraph has its own ID</h3><p>Claude changes the exact paragraph it means to, by ID, and only after reading it. Nothing else on the page moves.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-git"/></svg><div><h3>Real Git history</h3><p>Every change is a Git commit, kept in a private repo in your GitHub. Same history everywhere, readable with any Git tool.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-hand"/></svg><div><h3>Your words win</h3><p>If you and Claude change the same paragraph at the same time, your version is the one that stays.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-undo"/></svg><div><h3>Undo any commit</h3><p>Took a wrong turn last Tuesday? Undo that one commit. Later work stays where it is.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-note"/></svg><div><h3>Instructions for each notebook</h3><p>Write once how you want Claude to work there. It gets them before anything else in the notebook, and no AI can change them.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-phone"/></svg><div><h3>On your phone, laptop off</h3><p>Open it in any browser or install it as an app. Claude on your phone reads the same notebook.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-folder"/></svg><div><h3>One click, new notebook</h3><p>A notebook for every idea, project or book. Claude can make one from a chat when you ask.</p></div></li>
+      <li class="fact reveal"><svg aria-hidden="true"><use href="#i-cloud"/></svg><div><h3>Always on, nothing to run</h3><p>It lives in your own Cloudflare account. No server to look after, no laptop that has to stay awake.</p></div></li>
+    </ul>
+    <div class="pair">
+      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-05"><div class="ph"><strong>SHOT-05</strong><span>History panel: a commit by Claude opened, with the sections it touched.</span></div></div></div><figcaption>Each commit shows who made it and which pages it touched.</figcaption></figure>
+      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-08"><div class="ph"><strong>SHOT-08</strong><span>The notebook instructions editor.</span></div></div></div><figcaption>Tell Claude once how to work in a notebook.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="pt-s" aria-labelledby="who-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="who-h">Who it's for</h2>
+      <p class="lede">Anyone who works on something big with Claude, over many chats, and needs it to remember.</p>
+    </div>
+    <div class="shelf">
+      <div class="shelf-top" aria-hidden="true"><span>Notebooks people keep</span><span>What Claude does with it</span></div>
+      <ul class="rows">
+        <li class="row">
+          <div class="nb"><span class="tile t1"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>my-startup</div>
+          <div><h3>Solo founders</h3><p>The idea, who it's for, pricing, decisions, the launch plan. The whole company in one place.</p></div>
+          <p class="how">Starts every chat knowing your business. Ask it to update the plan after a call, then check exactly what it changed.</p>
+        </li>
+        <li class="row">
+          <div class="nb"><span class="tile t2"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>api-redesign</div>
+          <div><h3>Developers using Claude Code</h3><p>Architecture, why you chose this over that, what's done, what's next. The reasons that never make it into code comments.</p></div>
+          <p class="how">Tell Claude Code in the notebook's instructions to read it before touching your code and to write down what it built and why. Then the next session doesn't guess.</p>
+        </li>
+        <li class="row">
+          <div class="nb"><span class="tile t3"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>story-bible</div>
+          <div><h3>Writers and world-builders</h3><p>Characters, places, rules of the world, the timeline, what each chapter set up.</p></div>
+          <p class="how">Keeps a hundred chapters consistent. When it updates a character, you see the old line and the new one.</p>
+        </li>
+        <li class="row">
+          <div class="nb"><span class="tile t4"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>game-design-doc</div>
+          <div><h3>Game designers</h3><p>Mechanics, levels, balance numbers, the story, and every idea you cut and why.</p></div>
+          <p class="how">Proposes changes to one system without rewriting the rest of the doc. Undo the ones you don't like.</p>
+        </li>
+        <li class="row">
+          <div class="nb"><span class="tile t5"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>thesis-notes</div>
+          <div><h3>Students and researchers</h3><p>Sources, notes, arguments, drafts, and what your supervisor said last time.</p></div>
+          <p class="how">Picks up your research where you left it, and every edit to your notes stays on the record.</p>
+        </li>
+        <li class="row">
+          <div class="nb"><span class="tile t6"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>project-docs</div>
+          <div><h3>Open-source maintainers</h3><p>Docs that already live in Git, and where you want every edit reviewed like code.</p></div>
+          <p class="how">Edits land as small commits in a GitHub repo, and each one names the AI that made it.</p>
+        </li>
+        <li class="row soon">
+          <div class="nb"><span class="tile t7"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>client-handbook</div>
+          <div><h3>Teams, startups and agencies<span class="tag">Coming</span></h3><p>One notebook for the whole team, each person with their own AI, and everyone's changes in one history.</p></div>
+          <p class="how">Teams are what I'm building next. <a href="mailto:hello@quillipi.app?subject=Quillipi%20for%20teams">Tell me what your team needs.</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="yours" id="start" aria-labelledby="yours-h">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 id="yours-h">Yours, start to finish</h2>
+      <p class="lede mt">Quillipi doesn't hold your notes on my servers. Your copy runs in your accounts, and you can walk away with everything.</p>
+      <ul class="checks">
+        <li><b>Runs in your Cloudflare account.</b> Cloudflare's free plan is enough.</li>
+        <li><b>History in your GitHub.</b> Every notebook is a private repo in an organization you own.</li>
+        <li><b>Plain Markdown files.</b> Open them in any editor, today or in ten years.</li>
+        <li><b>Source-available.</b> The code is public: read it, run it, improve it.</li>
+        <li><b>Updates when you say so.</b> Your copy opens an issue when a new version is out. One button updates it, and reverting that one commit undoes it.</li>
+      </ul>
+    </div>
+    <div class="setup reveal">
+      <h3>From one button to your first notebook</h3>
+      <p class="muted small">No terminal and no config file to edit.</p>
+      <ol>
+        <li>Press Deploy to Cloudflare, choose a name and enter your GitHub username.</li>
+        <li>Open your new Quillipi. It asks you to make a free GitHub organization for your notebooks.</li>
+        <li>One click makes Quillipi's GitHub App there, one more installs it.</li>
+        <li>Sign in with GitHub, connect Claude, and start your first notebook.</li>
+      </ol>
+      <a class="btn btn-ink" href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy"><svg aria-hidden="true"><use href="#i-cloud"/></svg>Deploy to Cloudflare</a>
+      <div class="frame" data-waits="SHOT-07" hidden><div class="shot" data-slot="SHOT-07"><div class="ph"><strong>SHOT-07</strong><span>The setup page, with its steps ticking off.</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-0" aria-labelledby="with-h">
+  <div class="wrap">
+    <div class="head tight reveal">
+      <h2 id="with-h">Works with Claude, wherever you use it</h2>
+      <p class="lede">Connect once and the same notebooks show up everywhere you talk to Claude.</p>
+    </div>
+    <ul class="apps reveal">
+      <li class="chip">claude.ai</li><li class="chip">Claude desktop app</li><li class="chip">Claude on iPhone and Android</li><li class="chip">Claude Code</li>
+      <li class="chip next">ChatGPT, Cursor and VS Code are next</li>
+    </ul>
+  </div>
+</section>
+
+<section id="pricing" aria-labelledby="pricing-h">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2 id="pricing-h">Free for you. Paid for teams.</h2>
+      <p class="lede">If it's just you, it costs nothing, now or later. Teams that use it for work will pay, and that's what keeps it going.</p>
+    </div>
+    <div class="plans">
+      <div class="plan main reveal">
+        <div class="plan-body">
+          <h3>Personal</h3>
+          <p class="price">$0 <small>forever</small></p>
+          <p class="for">For individuals, solo founders, students, writers and side projects.</p>
+          <ul>
+            <li>Unlimited notebooks</li>
+            <li>Full history, undo any commit</li>
+            <li>Claude on the web, desktop, phone and Claude Code</li>
+            <li>Runs in your own Cloudflare and GitHub</li>
+          </ul>
+        </div>
+        <a class="btn" href="#start">Get Quillipi free</a>
+      </div>
+      <div class="plan team reveal">
+        <div class="plan-body">
+          <h3>Team <span class="tag">Coming</span></h3>
+          <p class="price">$29 <small>a month, per team</small></p>
+          <p class="for">For startups, agencies and companies working in one notebook together.</p>
+          <ul>
+            <li>Everyone in one notebook, each with their own AI</li>
+            <li>Invites and roles</li>
+            <li>See whose AI changed what</li>
+            <li>Early price: the first teams keep $29 for life, and get help setting up from me</li>
+          </ul>
+        </div>
+        <a class="btn btn-ink" href="mailto:hello@quillipi.app?subject=Quillipi%20for%20teams">Ask for early access</a>
+        <p class="afford">Can't afford it? <a href="mailto:hello@quillipi.app?subject=Quillipi%20for%20my%20team">Email me.</a></p>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-body">
+          <h3>Open-source projects</h3>
+          <p class="price talk">Let's talk</p>
+          <p class="for">Maintaining docs for an open-source project with a team? I haven't decided how this works yet, and I'd like to hear from you.</p>
+          <ul>
+            <li>Tell me about your project</li>
+            <li>We'll figure out something fair</li>
+          </ul>
+        </div>
+        <a class="btn btn-line" href="mailto:hello@quillipi.app?subject=Quillipi%20for%20an%20open-source%20project">Email me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="pt-s" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="head reveal"><h2 id="faq-h">Questions</h2></div>
+    <div class="faq">
+      <details><summary>Is it really free?</summary><p>Yes, for one person. Quillipi runs in your own Cloudflare account, and Cloudflare's free plan is enough for it, so there's nothing to pay me or them. The code is public and source-available, under the PolyForm Shield license. Teams will pay once team features exist.</p></details>
+      <details><summary>Can you read my notebooks?</summary><p>No. Your copy of Quillipi runs in your Cloudflare account and keeps its history in your GitHub. Nothing passes through me.</p></details>
+      <details><summary>Do I need to know Cloudflare or GitHub?</summary><p>You need a free account on each. The setup page walks you through every step and tells you what to press on each page, and you come back to Quillipi by yourself. No terminal.</p></details>
+      <details><summary>What does Claude actually do with it?</summary><p>At the start of a chat it reads a short map of the notebook, then only the pages it needs. It edits paragraphs by their IDs, commits its own changes with a message saying what it did, and never commits yours. Big deletions wait for your approval.</p></details>
+      <details><summary>Which AI apps work with it?</summary><p>Claude today: claude.ai, the desktop app, the phone apps and Claude Code. Quillipi speaks MCP, the open standard these apps use, so ChatGPT, Cursor and VS Code are next. I'll list them here once I've tried each one.</p></details>
+      <details><summary>What if I stop using it?</summary><p>Your notebooks are Markdown files in a Git repo you own. Take them anywhere, open them with anything.</p></details>
+      <details><summary>Who makes this?</summary><p>Me, Karan. I'm building it on my own, out in the open. If something breaks or you want something, <a href="https://github.com/quillipi/quillipi/issues">open an issue on GitHub</a> or <a href="mailto:hello@quillipi.app">email hello@quillipi.app</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="close" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 id="close-h">Write it down once. Never explain it again.</h2>
+      <p class="lede mt">Set it up in your browser, free.</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy"><svg aria-hidden="true"><use href="#i-cloud"/></svg>Deploy to Cloudflare</a>
+        <a class="btn btn-line" href="https://github.com/quillipi/quillipi"><svg aria-hidden="true"><use href="#i-gh"/></svg>View on GitHub</a>
+      </div>
+    </div>
+    <div class="art reveal"><img src="/images/closing.svg" width="600" height="600" loading="lazy" decoding="async" alt="An open notebook page with one paragraph marked in the margin as changed by Claude, beside a line of commits."></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Quillipi, back to the top"><svg class="drop" aria-hidden="true"><use href="#i-drop"/></svg>Quillipi</a>
+    <span>Source-available. Made by Karan.</span>
+    <nav aria-label="Footer">
+      <a href="https://github.com/quillipi/quillipi">GitHub</a>
+      <a href="https://github.com/quillipi/quillipi#readme">Guide</a>
+      <a href="https://github.com/quillipi/quillipi/blob/main/CHANGELOG.md">What's new</a>
+      <a href="https://github.com/quillipi/quillipi/blob/main/SECURITY.md">Security</a>
+      <a href="mailto:hello@quillipi.app">hello@quillipi.app</a>
+    </nav>
+    <p class="privacy">This site counts visits with Cloudflare Web Analytics, which uses no cookies and doesn't track you across sites. Nothing else is collected.</p>
+  </div>
+</footer>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CLOUDFLARE_WEB_ANALYTICS_TOKEN"}'></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "SHOT-01": { "ratio": [16, 10], "widths": [800, 1600], "sizes": "(max-width: 1236px) calc(100vw - 56px), 1124px", "alt": "Quillipi's Home in a browser: notebooks shown as folders, the sections edited most recently, and the card that says the GitHub backup is up to date." },
+  "SHOT-02": { "ratio": [9, 19.5], "widths": [390, 780], "sizes": "260px", "alt": "Quillipi installed as an app on a phone, showing Home." },
+  "SHOT-03": { "ratio": [14, 9], "widths": [700, 1400], "sizes": "(max-width: 860px) calc(100vw - 56px), 620px", "alt": "A section open in Quillipi, with an orange mark in the margin beside the paragraph Claude changed and the History panel on the right." },
+  "SHOT-04": { "ratio": [14, 9], "widths": [700, 1400], "sizes": "(max-width: 860px) calc(100vw - 56px), 620px", "alt": "A claude.ai chat: after one short message, Claude reads the Quillipi notebook and answers with the project's full context." },
+  "SHOT-05": { "ratio": [4, 3], "widths": [600, 1200], "sizes": "(max-width: 760px) calc(100vw - 56px), 550px", "alt": "Quillipi's History panel with a commit made by Claude opened, listing the sections it touched." },
+  "SHOT-06": { "ratio": [14, 9], "widths": [700, 1400], "sizes": "(max-width: 860px) calc(100vw - 56px), 620px", "alt": "A notebook's overview in Quillipi: its folders and sections as rows, each with its last commit, like a repository on GitHub." },
+  "SHOT-07": { "ratio": [4, 3], "widths": [600, 1200], "sizes": "(max-width: 900px) calc(100vw - 96px), 500px", "alt": "Quillipi's first-time setup page, with its steps ticked off one by one." },
+  "SHOT-08": { "ratio": [4, 3], "widths": [600, 1200], "sizes": "(max-width: 760px) calc(100vw - 56px), 550px", "alt": "The editor for a notebook's instructions, where you tell Claude how to work in that notebook." },
+  "VID-01": { "video": true, "width": 1920, "height": 1080, "title": "Quillipi in 90 seconds", "description": "A new Claude chat reads a Quillipi notebook from one sentence, then makes a change that is looked over and committed." }
+}
