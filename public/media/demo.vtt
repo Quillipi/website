@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00.000 --> 00:08.500
+A new chat with Claude. One line: "read my launch plan notebook".
+
+00:08.500 --> 00:15.000
+Claude reads the notebook's map first, then only the pages it needs.
+
+00:15.000 --> 00:22.500
+It answers with the whole project: decisions, launch plan, pricing.
+
+00:22.500 --> 00:28.000
+Now a change: "teams pay $49 a month per café; update the pricing".
+
+00:28.000 --> 00:30.000
+Claude edits two pages and leaves them uncommitted, as the notebook asks.
+
+00:30.000 --> 00:39.500
+In Quillipi, its changes are marked in the margin. Nothing is committed yet.
+
+00:39.500 --> 00:46.000
+It looks right, so: "looks good, commit it".
+
+00:46.000 --> 00:52.000
+Claude commits, with a message that says what changed.
+
+00:52.000 --> 00:57.100
+The commit in History: made by Claude, and the pages it touched.

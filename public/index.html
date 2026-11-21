@@ -81,6 +81,7 @@
       ],
       "sameAs": ["https://github.com/quillipi/quillipi"]
     },
+    {"@type":"VideoObject","@id":"https://quillipi.app/#demo","name":"Quillipi in one minute","description":"A new Claude chat reads a Quillipi notebook from one sentence, then changes the pricing, waits to be looked over, and commits.","thumbnailUrl":"https://quillipi.app/media/demo-poster.webp","contentUrl":"https://quillipi.app/media/demo.mp4","uploadDate":"2026-11-20","inLanguage":"en"},
     {
       "@type": "FAQPage",
       "@id": "https://quillipi.app/#faq",
@@ -143,7 +144,7 @@
       <p class="lede">Write your project down once. Start any chat with one line and Claude reads it, edits it one paragraph at a time, and every change lands as a commit you can see and undo.</p>
       <div class="actions">
         <a class="btn btn-ink" href="#start">Get Quillipi free</a>
-        <a class="btn btn-line" href="#film"><svg aria-hidden="true"><use href="#i-play"/></svg>Watch the 90-second demo</a>
+        <a class="btn btn-line" href="#film"><svg aria-hidden="true"><use href="#i-play"/></svg>Watch the 1-minute demo</a>
       </div>
       <p class="fine">Free for one person, forever. Source-available. Runs in your own Cloudflare account, with its history in your own GitHub.</p>
     </div>
@@ -212,7 +213,7 @@
           <p>Start a notebook in one click, or ask Claude to make one. Put in what matters: the idea, the decisions, the plan, the why behind them. Folders keep a big project tidy.</p>
           <p class="muted">It's a normal editor. Headings, lists, tables, checklists, images and drawings.</p>
         </div>
-        <div class="frame"><div class="shot" data-slot="SHOT-06"><div class="ph"><strong>SHOT-06</strong><span>A notebook's overview: folders and sections as rows, the last commit on each, like a repo on GitHub.</span></div></div></div>
+        <div class="frame"><div class="shot" data-slot="SHOT-06"><picture><source type="image/avif" srcset="/images/shots/shot-06-700.avif 700w, /images/shots/shot-06-1400.avif 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><source type="image/webp" srcset="/images/shots/shot-06-700.webp 700w, /images/shots/shot-06-1400.webp 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><img src="/images/shots/shot-06-1400.webp" width="1400" height="900" alt="A notebook's overview in Quillipi: its folders and sections as rows, each with its last commit and who made it, like a repository on GitHub." loading="lazy" decoding="async"></picture></div></div>
       </li>
       <li class="step reveal">
         <div class="copy">
@@ -221,7 +222,7 @@
           <p>Connect Quillipi to Claude once. After that, a new chat needs one line, like "read my launch plan", and Claude knows the whole project. No pasting.</p>
           <p class="muted">It reads a short map first and then only what it needs, so long notebooks stay cheap to use.</p>
         </div>
-        <div class="frame"><div class="shot" data-slot="SHOT-04"><div class="ph"><strong>SHOT-04</strong><span>A claude.ai chat: one short message, Claude reads the notebook and answers with full context.</span></div></div></div>
+        <div class="frame"><div class="shot" data-slot="SHOT-04"><picture><source type="image/avif" srcset="/images/shots/shot-04-700.avif 700w, /images/shots/shot-04-1400.avif 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><source type="image/webp" srcset="/images/shots/shot-04-700.webp 700w, /images/shots/shot-04-1400.webp 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><img src="/images/shots/shot-04-1400.webp" width="1400" height="900" alt="A chat with Claude: after one short message, Claude reads the Quillipi notebook and sums up the project's decisions, launch plan and pricing." loading="lazy" decoding="async"></picture></div></div>
       </li>
       <li class="step reveal">
         <div class="copy">
@@ -230,7 +231,7 @@
           <p>Claude edits paragraph by paragraph, never the whole page. Its changes show in the margin until they're committed. Every commit says who made it, and any commit can be undone.</p>
           <p class="muted">If Claude tries to delete something big, it waits for you to approve it.</p>
         </div>
-        <div class="frame"><div class="shot" data-slot="SHOT-03"><div class="ph"><strong>SHOT-03</strong><span>A section open with an orange margin mark on the paragraph Claude changed, and the History panel on the right.</span></div></div></div>
+        <div class="frame"><div class="shot" data-slot="SHOT-03"><picture><source type="image/avif" srcset="/images/shots/shot-03-700.avif 700w, /images/shots/shot-03-1400.avif 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><source type="image/webp" srcset="/images/shots/shot-03-700.webp 700w, /images/shots/shot-03-1400.webp 1400w" sizes="(max-width: 860px) calc(100vw - 56px), 620px"><img src="/images/shots/shot-03-1400.webp" width="1400" height="900" alt="The Pricing page in Quillipi: a mark in the margin beside the paragraph Claude changed, not committed yet, and the History panel on the right." loading="lazy" decoding="async"></picture></div></div>
       </li>
     </ol>
   </div>
@@ -239,10 +240,10 @@
 <section class="film" id="film" aria-labelledby="film-h">
   <div class="wrap">
     <div class="head reveal">
-      <h2 id="film-h">See it in 90 seconds</h2>
+      <h2 id="film-h">See it in a minute</h2>
       <p class="lede">A new chat, one sentence, and Claude knows the whole project. Then a change from Claude that you look over and commit.</p>
     </div>
-    <div class="screen reveal" data-slot="VID-01"><div class="ph"><strong>VID-01</strong><span>Demo video, 16:9, 60 to 90 seconds, with captions.</span></div></div>
+    <div class="screen reveal" data-slot="VID-01"><video controls playsinline preload="none" width="1920" height="1080" poster="/media/demo-poster.webp" aria-label="Quillipi in one minute"><source src="/media/demo.mp4" type="video/mp4"><track kind="captions" src="/media/demo.vtt" srclang="en" label="English" default></video></div>
     <div class="note reveal">
       <p>I built Quillipi with Quillipi. Every chat that worked on it started with one line, "read Quillipi", and picked up exactly where the last one stopped.</p>
       <p class="small">That's the whole idea. The project's memory lives in one place that both of us can read and write, and I can see every change Claude makes to it. — Karan, who makes this</p>
@@ -266,8 +267,8 @@
       <li class="fact reveal"><svg aria-hidden="true"><use href="#i-cloud"/></svg><div><h3>Always on, nothing to run</h3><p>It lives in your own Cloudflare account. No server to look after, no laptop that has to stay awake.</p></div></li>
     </ul>
     <div class="pair">
-      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-05"><div class="ph"><strong>SHOT-05</strong><span>History panel: a commit by Claude opened, with the sections it touched.</span></div></div></div><figcaption>Each commit shows who made it and which pages it touched.</figcaption></figure>
-      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-08"><div class="ph"><strong>SHOT-08</strong><span>The notebook instructions editor.</span></div></div></div><figcaption>Tell Claude once how to work in a notebook.</figcaption></figure>
+      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-05"><picture><source type="image/avif" srcset="/images/shots/shot-05-600.avif 600w, /images/shots/shot-05-1200.avif 1200w" sizes="(max-width: 760px) calc(100vw - 56px), 550px"><source type="image/webp" srcset="/images/shots/shot-05-600.webp 600w, /images/shots/shot-05-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 56px), 550px"><img src="/images/shots/shot-05-1200.webp" width="1200" height="900" alt="Quillipi's History panel beside the Pricing page: each commit with its message, its number and who made it, most of them Claude via claude.ai." loading="lazy" decoding="async"></picture></div></div><figcaption>Every commit says what changed and who made it.</figcaption></figure>
+      <figure class="reveal"><div class="frame"><div class="shot" data-slot="SHOT-08"><picture><source type="image/avif" srcset="/images/shots/shot-08-600.avif 600w, /images/shots/shot-08-1200.avif 1200w" sizes="(max-width: 760px) calc(100vw - 56px), 550px"><source type="image/webp" srcset="/images/shots/shot-08-600.webp 600w, /images/shots/shot-08-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 56px), 550px"><img src="/images/shots/shot-08-1200.webp" width="1200" height="900" alt="The AI instructions editor for a notebook, with five rules Claude gets before it reads or writes there." loading="lazy" decoding="async"></picture></div></div><figcaption>Tell Claude once how to work in a notebook.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -460,6 +461,6 @@
   </div>
 </footer>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CLOUDFLARE_WEB_ANALYTICS_TOKEN"}'></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4d8d5a5b61c745bbbcbb30b583e253c8"}'></script>
 </body>
 </html>
