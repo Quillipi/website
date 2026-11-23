@@ -29,9 +29,10 @@ for (const page of pages) {
   }
   if (/<style\b/.test(html)) fail(`${page}: has a <style> block, which the Content-Security-Policy blocks. Put it in css/site.css.`);
 
-  // Every local file the page names is there.
+  // Every local file the page names is there. Cloudflare serves start.html at /start.
   for (const [, ref] of html.matchAll(/(?:href|src|poster)="(\/[^"#?]*)/g)) {
-    if (!existsSync(join(PUBLIC, ref === '/' ? 'index.html' : ref))) fail(`${page}: names ${ref}, which isn't in public/.`);
+    const file = ref === '/' ? 'index.html' : ref;
+    if (!existsSync(join(PUBLIC, file)) && !existsSync(join(PUBLIC, `${file}.html`))) fail(`${page}: names ${ref}, which isn't in public/.`);
   }
   for (const [, set] of html.matchAll(/srcset="([^"]+)"/g)) {
     for (const part of set.split(',')) {
@@ -53,12 +54,19 @@ for (const page of pages) {
   // Each page has one title, one main heading and a description.
   if ((html.match(/<h1\b/g) ?? []).length !== 1) fail(`${page}: should have exactly one <h1>.`);
   if (!/<title>[^<]{10,65}<\/title>/.test(html)) fail(`${page}: its <title> should be 10 to 65 characters.`);
+
+  // Pages meant for search engines say where they live and what they are.
+  if (!html.includes('name="robots" content="noindex"')) {
+    const name = page === 'index.html' ? '' : page.replace(/\.html$/, '');
+    const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] ?? '';
+    if (description.length < 70 || description.length > 160) fail(`${page}: the description is ${description.length} characters; search engines show 70 to 160.`);
+    if (!html.includes(`<link rel="canonical" href="https://quillipi.app/${name}">`)) fail(`${page}: should have <link rel="canonical" href="https://quillipi.app/${name}">.`);
+    if (!read('sitemap.xml').includes(`<loc>https://quillipi.app/${name}</loc>`)) fail(`${page}: isn't in sitemap.xml.`);
+  }
 }
 
 const home = read('index.html');
-const description = home.match(/<meta name="description" content="([^"]+)"/)?.[1] ?? '';
-if (description.length < 70 || description.length > 160) fail(`index.html: the description is ${description.length} characters; search engines show 70 to 160.`);
-for (const needed of ['<link rel="canonical" href="https://quillipi.app/">', 'property="og:image" content="https://quillipi.app/', 'name="twitter:card"']) {
+for (const needed of ['property="og:image" content="https://quillipi.app/', 'name="twitter:card"']) {
   if (!home.includes(needed)) fail(`index.html: is missing ${needed}`);
 }
 

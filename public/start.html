@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up Quillipi, step by step · Quillipi</title>
+<meta name="description" content="Make free GitHub and Cloudflare accounts, deploy your own Quillipi and connect Claude. Every screen shown, ticked off as you go. About 20 minutes.">
+<link rel="canonical" href="https://quillipi.app/start">
+<meta name="theme-color" content="#ECEBF3">
+<meta name="color-scheme" content="light">
+<meta name="author" content="Karan">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Quillipi">
+<meta property="og:url" content="https://quillipi.app/start">
+<meta property="og:title" content="Set up Quillipi, step by step">
+<meta property="og:description" content="From no accounts to your first notebook with Claude, one ticked-off step at a time.">
+<meta property="og:image" content="https://quillipi.app/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quillipi: a notebook page where Claude's change to one paragraph waits to be committed.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/images/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/images/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/site.js" defer></script>
+<script src="/js/start.js" defer></script>
+</head>
+<body class="guide">
+<a class="skip" href="#main">Skip to the steps</a>
+
+<svg width="0" height="0" class="sr" aria-hidden="true" focusable="false">
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5c3.8 4.6 6.5 8.4 6.5 11.7A6.5 6.5 0 0 1 5.5 14.2C5.5 10.9 8.2 7.1 12 2.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.6 4.2 4.2 0 0 0 7 18Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><svg class="drop" aria-hidden="true"><use href="#i-drop"/></svg>Quillipi</a>
+    <a class="nav-back" href="/">Back to the homepage</a>
+  </div>
+</header>
+
+<main id="main" class="wrap gwrap">
+
+<div class="ghead">
+  <p class="eyebrow">Setup guide</p>
+  <h1>Set up Quillipi, step by step</h1>
+  <p class="lede">Quillipi runs in your own free Cloudflare account and keeps its history in your own GitHub. This page takes you there one step at a time. Tick each step when it's done.</p>
+  <p class="gmeta">About 20 minutes if you're new to GitHub and Cloudflare, less if you have the accounts. Free, and no terminal.</p>
+</div>
+
+<div class="gprogress" id="progress" hidden>
+  <p><span id="progress-text">0 of 5 steps done</span><button class="linkish" id="reset" type="button">Start over</button></p>
+  <progress id="progress-bar" max="5" value="0" aria-labelledby="progress-text"></progress>
+  <p class="small muted">This page remembers your ticks in this browser, so you can go to GitHub or Cloudflare and come back.</p>
+</div>
+
+<aside class="gbefore" aria-labelledby="before-h">
+  <h2 id="before-h">Before you start</h2>
+  <ul>
+    <li><b>Use a computer.</b> A phone works for Quillipi later, but setting up is easier on a big screen.</li>
+    <li><b>You need three free accounts:</b> GitHub, Cloudflare and Claude. Already have one? Skip its step.</li>
+    <li><b>Make a new password for each.</b> Cloudflare refuses a password that has ever leaked anywhere. A password manager makes this easy.</li>
+    <li><b>Links open in a new tab.</b> This tab stays here. Come back to it after each step.</li>
+  </ul>
+</aside>
+
+<ol class="gsteps">
+
+<li class="gstep" id="github" data-step="github">
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Make a GitHub account <span class="gtime">about 3 minutes</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">GitHub keeps every notebook's history, in private repositories that only you can see.</p>
+    <ol class="gdo">
+      <li>Open <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub's sign-up page<svg class="out" aria-hidden="true"><use href="#i-out"/></svg></a>.</li>
+      <li>Type your email and a new password.</li>
+      <li>Pick a <b>username</b>. Nobody else on GitHub can have it, so if it says it's not available, add a word or a number.</li>
+      <li>Press <b>Create account</b>. GitHub may ask you to solve a small puzzle, then it emails you a code. Type the code in.</li>
+      <li>Come back to this tab.</li>
+    </ol>
+    <div class="gfield">
+      <label for="gh-user">Your GitHub username</label>
+      <input id="gh-user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="such as octocat" maxlength="39">
+      <p class="small muted" id="gh-user-note">Step 3 needs it. It stays in this browser and is never sent anywhere.</p>
+    </div>
+    <p class="gtip"><b>"Too many requests"?</b> GitHub is checking usernames too fast. Wait a minute, then reload the page.</p>
+    <figure class="gshot">
+      <a href="/images/guide/github-signup.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/github-signup.avif"><img src="/images/guide/github-signup.webp" width="596" height="694" alt="GitHub's sign-up form: email, password and username, with a green tick showing the username is free." loading="lazy" decoding="async"></picture></a>
+      <figcaption>A green tick means the username is free.</figcaption>
+    </figure>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done, next step</button>
+      <button class="btn btn-line gdone" type="button" data-had="true">I already have one</button>
+    </div>
+  </div>
+</li>
+
+<li class="gstep" id="cloudflare" data-step="cloudflare">
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Make a Cloudflare account <span class="gtime">about 3 minutes</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">Cloudflare runs your Quillipi, always on, even when your computer is off. Its free plan is enough.</p>
+    <ol class="gdo">
+      <li>Open <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener">Cloudflare's sign-up page<svg class="out" aria-hidden="true"><use href="#i-out"/></svg></a>. Use this link: signing up from the Deploy button can stop with "Invalid redirect_uri".</li>
+      <li>Type your email and a new password. If Cloudflare says the password was leaked in a data breach, choose a different one. It means that password appears in a leaked list somewhere, not that anything happened to your account.</li>
+      <li>Tick <b>Verify you are human</b>, then press <b>Sign up</b>.</li>
+      <li>Cloudflare emails you a link. Open it <b>on this computer</b> if you can.</li>
+      <li>Cloudflare then shows its own home page with lots of choices. <b>Don't create anything there.</b> Come back to this tab.</li>
+    </ol>
+    <p class="gtip"><b>Opened the email on your phone?</b> A "Verify your account" box stays on the computer and doesn't close. Reload the Cloudflare tab (F5) and it goes away.</p>
+    <div class="gshots">
+      <figure class="gshot">
+        <a href="/images/guide/cf-signup.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-signup.avif"><img src="/images/guide/cf-signup.webp" width="622" height="810" alt="Cloudflare's sign-up page: Continue with Google, Apple or GitHub, then email, password and the Sign up button." loading="lazy" decoding="async"></picture></a>
+        <figcaption>Cloudflare's sign-up page.</figcaption>
+      </figure>
+      <figure class="gshot">
+        <a href="/images/guide/cf-verify.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-verify.avif"><img src="/images/guide/cf-verify.webp" width="800" height="842" alt="Cloudflare's Verify your account box: we sent an email, click the link in it, with a Resend email button." loading="lazy" decoding="async"></picture></a>
+        <figcaption>Verified on another device? Reload, and this box goes away.</figcaption>
+      </figure>
+    </div>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done, next step</button>
+      <button class="btn btn-line gdone" type="button" data-had="true">I already have one</button>
+    </div>
+  </div>
+</li>
+
+<li class="gstep" id="deploy" data-step="deploy">
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Put Quillipi in your Cloudflare <span class="gtime">about 5 minutes</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">Cloudflare makes a private copy of Quillipi in your GitHub and runs it. You fill in one box.</p>
+    <p><a class="btn btn-ink" href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-cloud"/></svg>Deploy to Cloudflare</a></p>
+    <ol class="gdo">
+      <li>Press <b>Deploy to Cloudflare</b> above. Cloudflare opens <b>Set up your application</b>.</li>
+      <li>Under <b>Git account</b>, press <b>New GitHub connection</b>. Sign in with your GitHub account, then press <b>Install &amp; Authorize</b>.</li>
+      <li>Back in the form, check that <b>Create private Git repository</b> is ticked. <b>Project name</b> says <code>quillipi</code>. It becomes part of your address, so change it if you like.</li>
+      <li>Scroll down to <b>GITHUB_USER_LOGIN</b> and type your GitHub username: <code class="js-user" data-empty="your GitHub username">your GitHub username</code>. Only this GitHub account can finish the setup and use your Quillipi.</li>
+      <li>Leave everything else as it is, and press <b>Deploy</b>.</li>
+      <li>Wait about a minute while Cloudflare builds it. When the last line says <b>Success! Build completed.</b>, look a few lines up for your address. It starts with <code>https://</code> and ends with <code>.workers.dev</code>.</li>
+    </ol>
+    <p class="gtip"><b>Landed on "Select a repository" with "No Git repositories found"?</b> Nothing is wrong. After connecting GitHub, Cloudflare sometimes forgets where you came from. Close that tab, come back here and press <b>Deploy to Cloudflare</b> again. The form now shows your GitHub account.</p>
+    <div class="gshots">
+      <figure class="gshot">
+        <a href="/images/guide/cf-connect.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-connect.avif"><img src="/images/guide/cf-connect.webp" width="700" height="439" alt="Cloudflare's Set up your application form, with the New GitHub connection button under Git account." loading="lazy" decoding="async"></picture></a>
+        <figcaption>First, New GitHub connection.</figcaption>
+      </figure>
+      <figure class="gshot">
+        <a href="/images/guide/gh-install.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/gh-install.avif"><img src="/images/guide/gh-install.webp" width="634" height="670" alt="GitHub asking to Install and Authorize Cloudflare Workers and Pages on your personal account, with All repositories chosen." loading="lazy" decoding="async"></picture></a>
+        <figcaption>On GitHub, Install &amp; Authorize.</figcaption>
+      </figure>
+      <figure class="gshot">
+        <a href="/images/guide/cf-no-repos.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-no-repos.avif"><img src="/images/guide/cf-no-repos.webp" width="526" height="367" alt="Cloudflare's Select a repository page saying No Git repositories found on this account." loading="lazy" decoding="async"></picture></a>
+        <figcaption>If you see this, press Deploy to Cloudflare here again.</figcaption>
+      </figure>
+      <figure class="gshot">
+        <a href="/images/guide/cf-form-top.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-form-top.avif"><img src="/images/guide/cf-form-top.webp" width="526" height="556" alt="The form with the GitHub account chosen, Create private Git repository ticked and the project name quillipi." loading="lazy" decoding="async"></picture></a>
+        <figcaption>Your GitHub account, private repository ticked.</figcaption>
+      </figure>
+      <figure class="gshot">
+        <a href="/images/guide/cf-form-login.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-form-login.avif"><img src="/images/guide/cf-form-login.webp" width="526" height="556" alt="Further down the form: the GITHUB_USER_LOGIN box with a GitHub username typed in, and the build commands left as they are." loading="lazy" decoding="async"></picture></a>
+        <figcaption>Your GitHub username in GITHUB_USER_LOGIN.</figcaption>
+      </figure>
+      <figure class="gshot wide">
+        <a href="/images/guide/cf-success.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/cf-success.avif"><img src="/images/guide/cf-success.webp" width="758" height="182" alt="The end of Cloudflare's build log: the address ending in workers.dev, then Success! Build completed." loading="lazy" decoding="async"></picture></a>
+        <figcaption>Your address is a few lines above Success. Yours has your own name in it.</figcaption>
+      </figure>
+    </div>
+    <div class="gopen" id="opener" hidden>
+      <label for="qp-address">Paste your address here</label>
+      <div class="gopen-row">
+        <input id="qp-address" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://quillipi.your-name.workers.dev">
+        <a class="btn btn-ink" id="qp-open" href="#opener" target="_blank" rel="noopener" aria-disabled="true">Open my Quillipi<svg aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+      <p class="small muted" id="qp-note" aria-live="polite">Paste it here, or into your browser's address bar. A search box won't find it.</p>
+    </div>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done, next step</button>
+    </div>
+  </div>
+</li>
+
+<li class="gstep" id="finish" data-step="finish">
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Finish in your Quillipi <span class="gtime">about 5 minutes</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">From here your own Quillipi guides you. Its setup page shows one thing at a time and ticks each one off.</p>
+    <ol class="gdo">
+      <li><b>An organization for your notebooks.</b> A free GitHub organization that holds only your notebooks. Its name must be new on GitHub too, so if it's taken, add a word.</li>
+      <li><b>Quillipi's GitHub App.</b> One click makes it, one more installs it in that organization.</li>
+      <li><b>Sign in with GitHub.</b> Then you land on your Quillipi's Home.</li>
+    </ol>
+    <figure class="gshot">
+      <a href="/images/guide/quillipi-setup.webp" target="_blank" rel="noopener"><picture><source type="image/avif" srcset="/images/guide/quillipi-setup.avif"><img src="/images/guide/quillipi-setup.webp" width="698" height="600" alt="Quillipi's Set up your Quillipi page: its address already ticked, and the next step, an organization for your notebooks." loading="lazy" decoding="async"></picture></a>
+      <figcaption>Your Quillipi's setup page. The first step is already ticked.</figcaption>
+    </figure>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done, next step</button>
+    </div>
+  </div>
+</li>
+
+<!-- Shown once Quillipi 0.4.3, which adds Turn on updates to Home, is released (S4.6b): remove hidden. -->
+<li class="gstep" id="updates" data-step="updates" hidden>
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Turn on updates <span class="gtime">about 1 minute</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">So your Quillipi tells you when a new version is out, and updates with one button when you say so.</p>
+    <ol class="gdo">
+      <li>On Home, under <b>Get started</b>, press <b>Turn on updates</b>. GitHub opens with a file already filled in.</li>
+      <li>Press <b>Commit changes</b> on GitHub, then come back.</li>
+    </ol>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done, next step</button>
+    </div>
+  </div>
+</li>
+
+<li class="gstep" id="claude" data-step="claude">
+  <div class="gstep-head">
+    <span class="gnum" aria-hidden="true"></span>
+    <h2 tabindex="-1">Connect Claude and start a notebook <span class="gtime">about 3 minutes</span></h2>
+    <button class="gtoggle" type="button" aria-expanded="true" hidden>Show</button>
+  </div>
+  <div class="gbody">
+    <p class="gwhy">Connect once, and every Claude chat can read and write your notebooks: on the web, the desktop app, the phone and Claude Code. Claude's free plan works too.</p>
+    <ol class="gdo">
+      <li>On your Quillipi's Home, <b>Get started</b> shows how to add Quillipi to Claude, with your address ready to copy.</li>
+      <li>When Claude asks, press <b>Connect</b>, then <b>Continue with GitHub</b>.</li>
+      <li>Make your first notebook: press <b>New notebook</b> on Home, or ask Claude in any chat, for example <i>"Make a Quillipi notebook called garden plan and write a plan in it."</i></li>
+    </ol>
+    <p class="gtip"><b>Can't find Connectors in Claude's settings?</b> On claude.ai it may be under <b>Plugins</b>: press <b>Add</b>, then <b>Add custom connector</b>.</p>
+    <div class="gactions" hidden>
+      <button class="btn btn-ink gdone" type="button">Done</button>
+    </div>
+  </div>
+</li>
+
+</ol>
+
+<div class="gend" id="end" hidden>
+  <h2 tabindex="-1">You're set up.</h2>
+  <p class="lede">Your notebooks live in your Cloudflare and your GitHub. Start any chat with "read my notebook" and Claude picks up where you left off.</p>
+</div>
+
+<aside class="gstuck" aria-labelledby="stuck-h">
+  <h2 id="stuck-h">Stuck?</h2>
+  <p>Email <a href="mailto:hello@quillipi.app?subject=Stuck%20setting%20up%20Quillipi">hello@quillipi.app</a> and say which step you're on. A screenshot helps. Or <a href="https://github.com/quillipi/quillipi/issues">open an issue on GitHub</a>.</p>
+  <p class="small muted">The screenshots are from November 2026. Cloudflare and GitHub change their pages now and then, so yours may look a little different.</p>
+</aside>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/"><svg class="drop" aria-hidden="true"><use href="#i-drop"/></svg>Quillipi</a>
+    <span>Source-available. Made by Karan.</span>
+    <nav aria-label="Footer">
+      <a href="https://github.com/quillipi/quillipi">GitHub</a>
+      <a href="https://github.com/quillipi/quillipi/blob/main/CHANGELOG.md">What's new</a>
+      <a href="https://github.com/quillipi/quillipi/blob/main/SECURITY.md">Security</a>
+      <a href="mailto:hello@quillipi.app">hello@quillipi.app</a>
+    </nav>
+    <p class="privacy">This site counts visits with Cloudflare Web Analytics, which uses no cookies and doesn't track you across sites. Your ticks, username and address stay in this browser.</p>
+  </div>
+</footer>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4d8d5a5b61c745bbbcbb30b583e253c8"}'></script>
+</body>
+</html>

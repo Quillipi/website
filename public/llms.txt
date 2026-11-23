@@ -22,7 +22,7 @@ Claude today: claude.ai, the Claude desktop app, Claude on iPhone and Android, a
 
 ## Setting it up
 
-Press Deploy to Cloudflare in the README, choose a name and enter your GitHub username. Then open your new Quillipi: it asks for a free GitHub organization for your notebooks, makes Quillipi's GitHub App there in one click, installs it, and you sign in with GitHub and connect Claude. No terminal. Cloudflare's free plan is enough.
+The setup guide at https://quillipi.app/start walks through it with screenshots, including making the free GitHub and Cloudflare accounts. In short: press Deploy to Cloudflare and enter your GitHub username. Then open your new Quillipi: it asks for a free GitHub organization for your notebooks, makes Quillipi's GitHub App there in one click, installs it, and you sign in with GitHub and connect Claude. No terminal. Cloudflare's free plan is enough.
 
 ## Price
 
@@ -31,6 +31,7 @@ Free for one person, with unlimited notebooks. A paid plan for teams is planned 
 ## Links
 
 - [Homepage](https://quillipi.app/)
+- [Setup guide](https://quillipi.app/start)
 - [Code and guide (README)](https://github.com/quillipi/quillipi#readme)
 - [What's new (CHANGELOG)](https://github.com/quillipi/quillipi/blob/main/CHANGELOG.md)
 - [Security policy](https://github.com/quillipi/quillipi/blob/main/SECURITY.md)

@@ -297,6 +297,81 @@ footer .privacy{flex-basis:100%;font-size:13.5px}
 .lost{min-height:70vh;display:grid;align-content:center;gap:22px;padding:80px 0}
 .lost .actions{display:flex;flex-wrap:wrap;gap:12px}
 
+/* the setup guide (start.html): one column of steps, each ticked off when done */
+.nav-back{margin-left:auto;font-size:15px;color:var(--graphite);text-decoration:none}
+.nav-back:hover{color:var(--ink);text-decoration:underline}
+.gwrap{max-width:820px;padding-top:56px;padding-bottom:96px}
+.ghead h1{font-size:clamp(40px,5.4vw,60px);line-height:1.05}
+.ghead .lede{margin-top:20px}
+.eyebrow{font:500 14px/1 var(--sans);color:var(--violet);margin-bottom:16px;letter-spacing:.02em}
+.gmeta{margin-top:14px;font-size:15px;color:var(--graphite)}
+.gprogress{margin-top:36px;padding:18px 22px;background:var(--paper);border-radius:16px;box-shadow:0 1px 0 var(--rule)}
+.gprogress p:first-child{display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-weight:500}
+.gprogress progress{display:block;width:100%;height:8px;margin:12px 0 10px;border:0;border-radius:99px;background:var(--violet-soft);overflow:hidden;-webkit-appearance:none;appearance:none}
+.gprogress progress::-webkit-progress-bar{background:var(--violet-soft);border-radius:99px}
+.gprogress progress::-webkit-progress-value{background:var(--violet);border-radius:99px;transition:width .3s var(--ease)}
+.gprogress progress::-moz-progress-bar{background:var(--violet);border-radius:99px}
+.linkish{font:500 14px/1 var(--sans);color:var(--graphite);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.linkish:hover{color:var(--ink)}
+.gbefore,.gstuck{margin-top:28px;padding:24px 26px;border:1px solid var(--rule);border-radius:16px}
+.gbefore h2,.gstuck h2,.gend h2{font-size:28px;margin-bottom:12px}
+.gbefore ul{margin:0;padding:0 0 0 20px;display:grid;gap:8px;font-size:16px}
+.gbefore b{font-weight:600}
+.gstuck p+p{margin-top:10px}
+.gsteps{list-style:none;counter-reset:g;margin:36px 0 0;padding:0;display:grid;gap:16px}
+.gstep{counter-increment:g;background:var(--paper);border-radius:20px;box-shadow:0 1px 0 var(--rule),0 24px 48px -36px rgba(23,20,42,.35);scroll-margin-top:84px}
+.gstep-head{display:grid;grid-template-columns:40px 1fr auto;gap:14px;align-items:center;padding:22px 24px}
+.gnum{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--violet);color:var(--violet);display:grid;place-items:center;font:600 15px/1 var(--sans)}
+.gnum::before{content:counter(g)}
+.gstep h2{font-size:26px;line-height:1.2;outline-offset:6px}
+.gtime{display:inline-block;font:400 14px/1 var(--sans);color:var(--graphite);letter-spacing:0;vertical-align:3px;margin-left:6px}
+.gtoggle{font:500 14px/1 var(--sans);padding:9px 14px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer}
+.gtoggle:hover{border-color:var(--graphite)}
+.gstep.done .gnum{background:var(--violet) url(../images/check.svg) center/14px no-repeat;border-color:var(--violet)}
+.gstep.done .gnum::before{content:""}
+.gstep.done h2{color:var(--graphite)}
+.gbody{padding:0 24px 26px 78px}
+.gstep .gbody>*+*{margin-top:18px}
+.gwhy{color:var(--graphite)}
+.gdo{margin-bottom:0;padding:0 0 0 20px;display:grid;gap:10px}
+.gdo li::marker{color:var(--violet);font-weight:600}
+.gdo b,.gtip b{font-weight:600}
+.gbody a:not(.btn){color:var(--violet-deep);text-underline-offset:3px}
+.out{width:14px;height:14px;margin-left:3px;vertical-align:-1px}
+.gbody code{font:500 14.5px/1 var(--mono);background:var(--desk);padding:3px 6px;border-radius:6px;overflow-wrap:anywhere}
+.gtip{padding:14px 16px;border-radius:12px;background:var(--marker-soft);color:#4a2a10;font-size:15.5px}
+.gfield label,.gopen label{display:block;font-weight:600;font-size:15.5px;margin-bottom:8px}
+.gfield input,.gopen input{width:100%;max-width:420px;font:500 16px/1.2 var(--mono);color:var(--ink);padding:12px 14px;border:1.5px solid var(--rule);border-radius:12px;background:#fff}
+.gfield input:focus,.gopen input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px var(--violet-soft)}
+.gfield p,.gopen p{margin-top:8px}
+.gopen{padding:18px 20px;border-radius:14px;background:var(--violet-soft)}
+.gopen-row{display:flex;flex-wrap:wrap;gap:10px}
+.gopen-row input{flex:1 1 260px;max-width:none}
+.gopen .btn{padding:12px 18px}
+.gopen .btn[aria-disabled="true"]{opacity:.45;cursor:default;transform:none}
+.gshots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;align-items:start}
+.gshot{margin:0;max-width:360px}
+.gshots .gshot{max-width:none}
+.gshot.wide{grid-column:1/-1;max-width:560px}
+.gshot a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--rule);box-shadow:0 12px 28px -22px rgba(23,20,42,.45);transition:box-shadow .2s,transform .2s var(--ease)}
+.gshot a:hover{box-shadow:0 16px 34px -20px rgba(23,20,42,.5);transform:translateY(-1px)}
+.gshot img{width:100%}
+.gshot figcaption{margin-top:8px;font-size:14px;color:var(--graphite)}
+.gactions{display:flex;flex-wrap:wrap;gap:10px;padding-top:6px}
+.gactions .btn{padding:13px 20px;font-size:15px}
+.gend{margin-top:28px;padding:30px;border-radius:20px;background:var(--ink);color:#EDEBF7}
+.gend .lede{color:#C9C5DC;margin-top:4px}
+.gend h2{outline-offset:6px}
+.gend :focus-visible{outline-color:var(--violet-light)}
+@media (max-width:620px){
+  .gstep-head{grid-template-columns:34px 1fr;padding:18px}
+  .gtoggle{grid-column:2;justify-self:start}
+  .gnum{width:30px;height:30px}
+  .gstep h2{font-size:23px}
+  .gtime{display:block;margin:6px 0 0;vertical-align:0}
+  .gbody{padding:0 18px 22px}
+}
+
 /* motion: only for people who haven't asked for less of it */
 @media (prefers-reduced-motion:no-preference){
   .hero h1,.hero .lede,.hero .actions,.hero .fine{animation:rise .8s var(--ease) both}
@@ -320,4 +395,4 @@ footer .privacy{flex-basis:100%;font-size:13.5px}
 @keyframes land{from{background:var(--violet-soft)}to{background:transparent}}
 @keyframes draw{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 
-@media print{.nav,.menu,.film,.demo-note,.page-foot{display:none}body{background:#fff}}
+@media print{.nav,.menu,.film,.demo-note,.page-foot,.gprogress,.gactions,.gtoggle,.gopen{display:none}body{background:#fff}.gbody[hidden]{display:block!important}}

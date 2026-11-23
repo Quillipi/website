@@ -88,7 +88,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, for one person. Quillipi runs in your own Cloudflare account, and Cloudflare's free plan is enough for it, so there's nothing to pay me or them. The code is public and source-available, under the PolyForm Shield license. Teams will pay once team features exist." } },
         { "@type": "Question", "name": "Can you read my notebooks?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your copy of Quillipi runs in your Cloudflare account and keeps its history in your GitHub. Nothing passes through me." } },
-        { "@type": "Question", "name": "Do I need to know Cloudflare or GitHub?", "acceptedAnswer": { "@type": "Answer", "text": "You need a free account on each. The setup page walks you through every step and tells you what to press on each page, and you come back to Quillipi by yourself. No terminal." } },
+        { "@type": "Question", "name": "Do I need to know Cloudflare or GitHub?", "acceptedAnswer": { "@type": "Answer", "text": "You need a free account on each, and you can make them as you go. The setup guide at quillipi.app/start shows every screen and what to press, and then your Quillipi's own setup page does the rest. No terminal." } },
         { "@type": "Question", "name": "What does Claude actually do with it?", "acceptedAnswer": { "@type": "Answer", "text": "At the start of a chat it reads a short map of the notebook, then only the pages it needs. It edits paragraphs by their IDs, commits its own changes with a message saying what it did, and never commits yours. Big deletions wait for your approval." } },
         { "@type": "Question", "name": "Which AI apps work with it?", "acceptedAnswer": { "@type": "Answer", "text": "Claude today: claude.ai, the desktop app, the phone apps and Claude Code. Quillipi speaks MCP, the open standard these apps use, so ChatGPT, Cursor and VS Code are next. I'll list them here once I've tried each one." } },
         { "@type": "Question", "name": "What if I stop using it?", "acceptedAnswer": { "@type": "Answer", "text": "Your notebooks are Markdown files in a Git repo you own. Take them anywhere, open them with anything." } },
@@ -336,15 +336,16 @@
       </ul>
     </div>
     <div class="setup reveal">
-      <h3>From one button to your first notebook</h3>
+      <h3>Four steps to your first notebook</h3>
       <p class="muted small">No terminal and no config file to edit.</p>
       <ol>
-        <li>Press Deploy to Cloudflare, choose a name and enter your GitHub username.</li>
-        <li>Open your new Quillipi. It asks you to make a free GitHub organization for your notebooks.</li>
-        <li>One click makes Quillipi's GitHub App there, one more installs it.</li>
+        <li>Make free GitHub and Cloudflare accounts, if you don't have them yet.</li>
+        <li>Press Deploy to Cloudflare and type your GitHub username.</li>
+        <li>Open your new Quillipi. In a few clicks it makes a GitHub organization and an App for your notebooks.</li>
         <li>Sign in with GitHub, connect Claude, and start your first notebook.</li>
       </ol>
-      <a class="btn btn-ink" href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy"><svg aria-hidden="true"><use href="#i-cloud"/></svg>Deploy to Cloudflare</a>
+      <a class="btn btn-ink" href="/start">Get started</a>
+      <p class="small muted mt">The guide shows every screen and ticks each step off. Know Cloudflare already? <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy">Deploy directly</a>.</p>
       <div class="frame" data-waits="SHOT-07" hidden><div class="shot" data-slot="SHOT-07"><div class="ph"><strong>SHOT-07</strong><span>The setup page, with its steps ticking off.</span></div></div></div>
     </div>
   </div>
@@ -421,7 +422,7 @@
     <div class="faq">
       <details><summary>Is it really free?</summary><p>Yes, for one person. Quillipi runs in your own Cloudflare account, and Cloudflare's free plan is enough for it, so there's nothing to pay me or them. The code is public and source-available, under the PolyForm Shield license. Teams will pay once team features exist.</p></details>
       <details><summary>Can you read my notebooks?</summary><p>No. Your copy of Quillipi runs in your Cloudflare account and keeps its history in your GitHub. Nothing passes through me.</p></details>
-      <details><summary>Do I need to know Cloudflare or GitHub?</summary><p>You need a free account on each. The setup page walks you through every step and tells you what to press on each page, and you come back to Quillipi by yourself. No terminal.</p></details>
+      <details><summary>Do I need to know Cloudflare or GitHub?</summary><p>You need a free account on each, and you can make them as you go. The <a href="/start">setup guide at quillipi.app/start</a> shows every screen and what to press, and then your Quillipi's own setup page does the rest. No terminal.</p></details>
       <details><summary>What does Claude actually do with it?</summary><p>At the start of a chat it reads a short map of the notebook, then only the pages it needs. It edits paragraphs by their IDs, commits its own changes with a message saying what it did, and never commits yours. Big deletions wait for your approval.</p></details>
       <details><summary>Which AI apps work with it?</summary><p>Claude today: claude.ai, the desktop app, the phone apps and Claude Code. Quillipi speaks MCP, the open standard these apps use, so ChatGPT, Cursor and VS Code are next. I'll list them here once I've tried each one.</p></details>
       <details><summary>What if I stop using it?</summary><p>Your notebooks are Markdown files in a Git repo you own. Take them anywhere, open them with anything.</p></details>
@@ -436,7 +437,7 @@
       <h2 id="close-h">Write it down once. Never explain it again.</h2>
       <p class="lede mt">Set it up in your browser, free.</p>
       <div class="actions">
-        <a class="btn btn-ink" href="https://deploy.workers.cloudflare.com/?url=https://github.com/quillipi/quillipi/tree/main/deploy"><svg aria-hidden="true"><use href="#i-cloud"/></svg>Deploy to Cloudflare</a>
+        <a class="btn btn-ink" href="/start">Get started</a>
         <a class="btn btn-line" href="https://github.com/quillipi/quillipi"><svg aria-hidden="true"><use href="#i-gh"/></svg>View on GitHub</a>
       </div>
     </div>
@@ -452,7 +453,7 @@
     <span>Source-available. Made by Karan.</span>
     <nav aria-label="Footer">
       <a href="https://github.com/quillipi/quillipi">GitHub</a>
-      <a href="https://github.com/quillipi/quillipi#readme">Guide</a>
+      <a href="/start">Setup guide</a>
       <a href="https://github.com/quillipi/quillipi/blob/main/CHANGELOG.md">What's new</a>
       <a href="https://github.com/quillipi/quillipi/blob/main/SECURITY.md">Security</a>
       <a href="mailto:hello@quillipi.app">hello@quillipi.app</a>

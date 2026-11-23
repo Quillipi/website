@@ -12,12 +12,14 @@ assets and no code of its own. A push to `main` deploys it, but only after `npm 
 npm install
 npm run dev        # http://localhost:8787, with the placeholders allowed
 npm run check      # everything a deploy checks
+npm run guide-images   # after changing a screenshot in shots/guide/
 ```
 
 | Path | What it is |
 | --- | --- |
-| `public/index.html` | The page |
-| `public/css/site.css`, `public/js/site.js` | Its only stylesheet and script. The page works without the script |
+| `public/index.html` | The homepage |
+| `public/start.html`, `public/js/start.js` | The setup guide at `/start`: every step from making the accounts to connecting Claude, ticked off and remembered in the visitor's browser. Its screenshots are in `public/images/guide/`, made from `shots/guide/` by `npm run guide-images` |
+| `public/css/site.css`, `public/js/site.js` | The only stylesheet, and the homepage's script. Both pages work without their scripts |
 | `public/fonts/` | Inter and Newsreader, served from here and not from Google, under the SIL Open Font License |
 | `public/images/` | Icons, the closing illustration, `og.png` (the image shown when the link is shared) and the screenshots in `shots/` |
 | `public/media/` | The demo video, its captions and its poster, once they're in |
@@ -37,7 +39,8 @@ npm run check      # everything a deploy checks
 - Every file the page names exists, and every `#link` goes somewhere on the page.
 - Every image has alt text and a width and height.
 - The video has captions.
-- There is one `<h1>`, the title is 10 to 65 characters and the description is 70 to 160.
+- Each page has one `<h1>` and a title of 10 to 65 characters, and each page for search engines has a
+  description of 70 to 160 characters, its canonical address and a line in `sitemap.xml`.
 - The questions in the structured data are word for word the ones on the page.
 - No placeholder is waiting for a screenshot, and the analytics token is set. The one exception is a
   frame marked `hidden` whose `data-waits` names the shots it waits for, for a shot that can only be
