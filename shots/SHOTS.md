@@ -5,6 +5,11 @@ The homepage goes live before the newcomer test, so its pictures come from two p
 
 - **From Karan's own Quillipi, now:** SHOT-03, SHOT-04, SHOT-05, SHOT-06, SHOT-08 and VID-01.
   They all happen inside one demo notebook, so nothing else of Karan's shows.
+- **Done in S4.6c (2026-11-24):** SHOT-01 and SHOT-02 are the test copy's Home (DevTools captures,
+  1400 × 900 and a 390-wide phone view at DPR 2), and SHOT-07 is the recording's part 4 at 3:54,
+  the setup page with three steps ticked, `kimetapp` blurred, padded to 4:3 with the page's own
+  background. The homepage now names the measured time: about 20 minutes from no accounts (the
+  test took 23 with every stumble the guide now prevents), about 10 with them.
 - **From the newcomer test's Quillipi (S4.5), later:** SHOT-01 and SHOT-02 (Home, which lists every
   notebook, and Quillipi can't hide one yet) and SHOT-07 (the setup page as it ticks, which only a
   fresh copy shows). Until then their frames are `hidden` with `data-waits` in `index.html`, and the

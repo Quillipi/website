@@ -220,8 +220,7 @@
   </div>
 </li>
 
-<!-- Shown once Quillipi 0.4.3, which adds Turn on updates to Home, is released (S4.6b): remove hidden. -->
-<li class="gstep" id="updates" data-step="updates" hidden>
+<li class="gstep" id="updates" data-step="updates">
   <div class="gstep-head">
     <span class="gnum" aria-hidden="true"></span>
     <h2 tabindex="-1">Turn on updates <span class="gtime">about 1 minute</span></h2>
@@ -230,9 +229,11 @@
   <div class="gbody">
     <p class="gwhy">So your Quillipi tells you when a new version is out, and updates with one button when you say so.</p>
     <ol class="gdo">
-      <li>On Home, under <b>Get started</b>, press <b>Turn on updates</b>. GitHub opens with a file already filled in.</li>
-      <li>Press <b>Commit changes</b> on GitHub, then come back.</li>
+      <li>On your Quillipi's Home, <b>Get started</b> begins with <b>Turn on updates</b>. Press <b>Add the file on GitHub</b>: GitHub opens with the file already filled in.</li>
+      <li>On GitHub, press <b>Commit changes…</b>, then <b>Commit changes</b> again, and come back.</li>
+      <li>Cloudflare puts your Quillipi up again with the file, and in a minute or two the step ticks itself.</li>
     </ol>
+    <p class="gtip"><b>Why can't Cloudflare add it?</b> Its GitHub connection may not add workflow files, the kind that runs on a schedule, so this one file is yours to add. <b>GitHub says the page isn't found?</b> Open "GitHub says the page isn't found?" under the button: it gives the file's name and text to add by hand.</p>
     <div class="gactions" hidden>
       <button class="btn btn-ink gdone" type="button">Done, next step</button>
     </div>
@@ -252,7 +253,7 @@
       <li>When Claude asks, press <b>Connect</b>, then <b>Continue with GitHub</b>.</li>
       <li>Make your first notebook: press <b>New notebook</b> on Home, or ask Claude in any chat, for example <i>"Make a Quillipi notebook called garden plan and write a plan in it."</i></li>
     </ol>
-    <p class="gtip"><b>Can't find Connectors in Claude's settings?</b> On claude.ai it may be under <b>Plugins</b>: press <b>Add</b>, then <b>Add custom connector</b>.</p>
+    <p class="gtip"><b>Your Claude's Settings show Connectors, not Plugins?</b> Add Quillipi there instead: <b>Connectors</b>, then <b>Add custom connector</b>.</p>
     <div class="gactions" hidden>
       <button class="btn btn-ink gdone" type="button">Done</button>
     </div>
